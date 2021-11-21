@@ -88,6 +88,8 @@ modify _base.py_ or create a new one for new algorithms
 
 ## Testing (benchmark)
 ### 1. download pretrained weights above
+https://pan.baidu.com/s/12okB6FhpmVXOMwsgXrw20g \
+key: qfg3
 ### 2. create model, load weights use timm
 ```python
 import torch
