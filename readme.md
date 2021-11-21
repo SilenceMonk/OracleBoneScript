@@ -59,7 +59,6 @@ image_size : 128
 
 # Train Config
 base_lr : 0.000015625 # lr = base_lr * bs * world_size (linear scaling by actual bs)
-
 optimizer : 'RAdam' # support: optimizers in timm and torch, (RAdam: https://paperswithcode.com/method/radam)
 weight_decay : 0.001
 nesterov : False # (bool) only for SGD
