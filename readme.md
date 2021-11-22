@@ -93,7 +93,7 @@ arch : resnet18 # support timm models
 pretrained : Ture # (bool) use ImageNet pretrained weights or not
 ema : Ture # (bool) exponential moving average
 
-resume : # 'logs/2021_11_18_20_04_20/best.pth' # resume training from giving dir
+resume : # logs/2021_11_18_20_04_20/best.pth # resume training from giving dir
 torch_hub_dir : pretrained_ecoder_weights # the dir where ImageNet pretrained weights are stored
 local_rank : 0
 world_size : 1
