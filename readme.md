@@ -9,6 +9,54 @@ pyyaml
 tqdm
 ```
 
+## File Tree
+```text
+│  base.py
+│  config.py
+│  dataset.py
+│  fine.py
+│  readme.md
+│  rough.py
+│          
+├─cfgs
+│      fine_resnet18_pretrained.yaml
+│      fine_resnet18_raw.yaml
+│      rough_resnet18_pretrained.yaml
+│      rough_resnet18_raw.yaml
+│      
+├─ckpt
+├─data
+│  └─obs
+│      ├─0102
+│      │      person_0000.jpg
+│      │      person_0001.jpg
+│      │      ...
+│      │      
+│      ├─0103
+│      │      person_0000.jpg
+│      │      person_0001.jpg
+│      │      ...
+│      ...
+│              
+├─logs
+│
+│          
+├─pretrained_ecoder_weights
+│  └─checkpoints
+│          resnet18-5c106cde.pth
+│          
+├─scripts
+│      local.sh
+│      normal.sh
+│      slurm.sh
+│      
+├─utils
+│  │  ddp.py
+│  │  ema.py
+│  │  util.py
+│  |  init__.py
+```
+
 ## Benchmark
 * arch
   * ResNet18
@@ -38,17 +86,15 @@ tqdm
 * example: _cfgs/fine_resnet18_pretrained.yaml_
 ```yaml
 # Experiment Config
-name : 'fine_resnet18_pretrained.yaml' # logger's name
-data : 'data/obs/' # the dir where data is stored
-logs : 'logs/' # the dir training logs will be saved under
-arch : 'resnet18' # support timm models
+name : fine_resnet18_pretrained.yaml # logger's name
+data : data/obs/ # the dir where data is stored
+logs : logs/ # the dir training logs will be saved under
+arch : resnet18 # support timm models
 pretrained : Ture # (bool) use ImageNet pretrained weights or not
 ema : Ture # (bool) exponential moving average
 
-resume : '' # 'logs/2021_11_18_20_04_20/best.pth' # resume training from giving dir
-torch_hub_dir : 'pretrained_ecoder_weights' # the dir where ImageNet pretrained weights are stored
-ddp : ~ # distributed mode, support: 'normal', 'slurm', '~'(no ddp)
-rank : 0
+resume : # 'logs/2021_11_18_20_04_20/best.pth' # resume training from giving dir
+torch_hub_dir : pretrained_ecoder_weights # the dir where ImageNet pretrained weights are stored
 local_rank : 0
 world_size : 1
 val_ratio: 0.2 # validation set ratio
@@ -59,7 +105,7 @@ image_size : 128
 
 # Train Config
 base_lr : 0.000015625 # lr = base_lr * bs * world_size (linear scaling by actual bs)
-optimizer : 'RAdam' # support: optimizers in timm and torch, (RAdam: https://paperswithcode.com/method/radam)
+optimizer : RAdam # support: optimizers in timm and torch, (RAdam: https://paperswithcode.com/method/radam)
 weight_decay : 0.001
 nesterov : False # (bool) only for SGD
 momentum : 0.9 # only for SGD
@@ -89,7 +135,7 @@ modify _base.py_ or create a new one for new algorithms
 ### 1. download pretrained weights above
 https://pan.baidu.com/s/12okB6FhpmVXOMwsgXrw20g \
 key: qfg3
-### 2. create model, load weights use timm
+### 2. create model, load weights using timm
 ```python
 import torch
 import timm
@@ -101,7 +147,7 @@ rough_model.load_state_dict(ckpt['ema'])
 
 # fine
 fine_model = timm.create_model(model_name='resnet18', num_classes=40)
-ckpt = torch.load('ckpt/rough_resnet18_pretrained.pth')
+ckpt = torch.load('ckpt/fine_resnet18_pretrained.pth')
 fine_model.load_state_dict(ckpt['ema'])
 ```
 
