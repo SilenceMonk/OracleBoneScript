@@ -93,7 +93,7 @@ arch : resnet18 # support timm models
 pretrained : Ture # (bool) use ImageNet pretrained weights or not
 ema : Ture # (bool) exponential moving average
 
-resume : # logs/2021_11_18_20_04_20/best.pth # resume training from giving dir
+resume : # ckpt/fine_resnet18_pretrained.pth # resume training from giving dir, uncomment to test
 torch_hub_dir : pretrained_ecoder_weights # the dir where ImageNet pretrained weights are stored
 local_rank : 0
 world_size : 1
@@ -132,32 +132,25 @@ use default config files and scripts
 modify _base.py_ or create a new one for new algorithms
 
 ## Testing (benchmark)
-### 1. download pretrained weights above
+
+### 1. download pretrained weights, put them under ckpt/
 https://pan.baidu.com/s/12okB6FhpmVXOMwsgXrw20g \
 key: qfg3
-### 2. create model, load weights using timm
-```python
-import torch
-import timm
-
-# rough
-rough_model = timm.create_model(model_name='resnet18', num_classes=10)
-ckpt = torch.load('ckpt/rough_resnet18_pretrained.pth')
-rough_model.load_state_dict(ckpt['ema'])
-
-# fine
-fine_model = timm.create_model(model_name='resnet18', num_classes=40)
-ckpt = torch.load('ckpt/fine_resnet18_pretrained.pth')
-fine_model.load_state_dict(ckpt['ema'])
+### 2. modify config file _resume_ in cfgs
+* example: _cfgs/fine_resnet18_pretrained.yaml_
+```yaml
+...
+resume : ckpt/fine_resnet18_pretrained.pth # resume training from giving dir, uncomment to test
+...
 ```
 
-### 3. preprocess input as in validation
-```python
-from torchvision.transforms import transforms
-
-test_TF = transforms.Compose([
-    transforms.Resize(size=128),
-    transforms.Normalize(mean=(0.1626,), std=(0.3356,))
-])
+### 2. modify _xxx.py_ to _xxx_test_ in bash script
+* example: _scripts/local.sh_
+```shell
+...
+python fine_test.py
 ```
-### 4. test loop ...
+### 3. run script
+```shell
+sh scripts/local.sh
+```
