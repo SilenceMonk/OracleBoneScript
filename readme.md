@@ -27,16 +27,26 @@ tqdm
 ├─ckpt
 ├─data
 │  └─obs
-│      ├─0102
-│      │      person_0000.jpg
-│      │      person_0001.jpg
-│      │      ...
-│      │      
-│      ├─0103
-│      │      person_0000.jpg
-│      │      person_0001.jpg
-│      │      ...
-│      ...
+│      └─train
+|          ├─0102
+|          │      person_0000.jpg
+|          │      person_0001.jpg
+|          │      ...
+|          │      
+|          ├─0103
+|          │      person_0000.jpg
+|          │      person_0001.jpg
+|          │      ...
+|          ...
+│      └─test
+|          ├─0102
+|          │      person_xxxx.jpg
+|          │      ...
+|          │      
+|          ├─0103
+|          │      person_xxxx.jpg
+|          │      ...
+|          ...
 │              
 ├─logs
 │
@@ -87,7 +97,7 @@ tqdm
 ```yaml
 # Experiment Config
 name : fine_resnet18_pretrained.yaml # logger's name
-data : data/obs/ # the dir where data is stored
+data : data/obs/train # the dir where trainset is stored
 logs : logs/ # the dir training logs will be saved under
 arch : resnet18 # support timm models
 pretrained : Ture # (bool) use ImageNet pretrained weights or not
@@ -136,9 +146,11 @@ modify _base.py_ or create a new one for new algorithms
 ### 1. download pretrained weights, put them under ckpt/
 https://pan.baidu.com/s/12okB6FhpmVXOMwsgXrw20g \
 key: qfg3
-### 2. modify config file _resume_ in cfgs
+### 2. modify config file _resume_ and _data_ in cfgs
 * example: _cfgs/fine_resnet18_pretrained.yaml_
 ```yaml
+...
+data : obs/test # testset dir
 ...
 resume : ckpt/fine_resnet18_pretrained.pth # resume training from giving dir, uncomment to test
 ...
