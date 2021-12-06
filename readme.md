@@ -156,7 +156,7 @@ resume : ckpt/fine_resnet18_pretrained.pth # resume training from giving dir, un
 ...
 ```
 
-### 2. modify _xxx.py_ to _xxx_test_ in bash script
+### 2. modify _xxx.py_ to _xxx_test.py_ in bash script
 * example: [_scripts/local.sh_](scripts/local.sh)
 ```shell
 ...
