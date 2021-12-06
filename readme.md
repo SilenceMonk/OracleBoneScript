@@ -93,7 +93,7 @@ tqdm
 ## Training
 
 ### 1. modify config file in cfgs
-* example: _cfgs/fine_resnet18_pretrained.yaml_
+* example: [_cfgs/fine_resnet18_pretrained.yaml_](cfgs/fine_resnet18_pretrained.yaml)
 ```yaml
 # Experiment Config
 name : fine_resnet18_pretrained.yaml # logger's name
@@ -123,7 +123,7 @@ nepochs : 50 # total training epochs
 ```
 
 ### 2. modify bash script
-* example: _scripts/local.sh_
+* example: [_scripts/local.sh_](scripts/local.sh)
 ```shell
 export cfg_dir=cfgs/fine_resnet18_pretrained.yaml # config file dir
 export ngpu=1 bs=64 ddp=~ # set number of gpus, batchsize per gpu, distributed mode (normal, slurm or ~ (no ddp))
@@ -147,7 +147,7 @@ modify _base.py_ or create a new one for new algorithms
 https://pan.baidu.com/s/12okB6FhpmVXOMwsgXrw20g \
 key: qfg3
 ### 2. modify _resume_ and _data_ in config files
-* example: _cfgs/fine_resnet18_pretrained.yaml_
+* example: [_cfgs/fine_resnet18_pretrained.yaml_](cfgs/fine_resnet18_pretrained.yaml)
 ```yaml
 ...
 data : obs/test # testset dir
@@ -157,7 +157,7 @@ resume : ckpt/fine_resnet18_pretrained.pth # resume training from giving dir, un
 ```
 
 ### 2. modify _xxx.py_ to _xxx_test_ in bash script
-* example: _scripts/local.sh_
+* example: [_scripts/local.sh_}(scripts/local.sh)
 ```shell
 ...
 python fine_test.py
