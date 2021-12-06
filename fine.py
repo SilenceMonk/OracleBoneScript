@@ -165,8 +165,7 @@ for epoch in range(C.nepochs):
         model_sd = model.module.state_dict() if C.ddp in ['slurm', 'normal'] else model.state_dict()
         ema_sd = ema_model.state_dict() if C.ema else None
 
-        ckpt_dict = {'config': C,
-                     'epoch': epoch,
+        ckpt_dict = {'epoch': epoch,
                      'model': model_sd,
                      'ema': ema_sd,
                      'scheduler': scheduler.state_dict(),
