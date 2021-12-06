@@ -1,0 +1,26 @@
+# Experiment Config
+name : rough_resnet18_raw.yaml
+data : data/obs/train
+logs : logs/
+arch : resnet18
+pretrained : False
+ema : Ture
+
+resume : # ckpt/rough_resnet18_raw.pth
+torch_hub_dir : pretrained_ecoder_weights
+local_rank : 0
+world_size : 1
+val_ratio: 0.2
+
+# Image Config
+num_classes : 10
+image_size : 128
+
+# Train Config
+base_lr : 0.000015625
+optimizer : RAdam
+momentum : 0.9
+weight_decay : 0.001
+nesterov : False
+nepochs : 100
+
