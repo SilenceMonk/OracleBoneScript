@@ -64,7 +64,7 @@ tqdm
 │  │  ddp.py
 │  │  ema.py
 │  │  util.py
-│  |  init__.py
+│  |  __init__.py
 ```
 
 ## Benchmark
