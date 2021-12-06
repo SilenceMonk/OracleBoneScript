@@ -146,7 +146,7 @@ modify _base.py_ or create a new one for new algorithms
 ### 1. download pretrained weights, put them under ckpt/
 https://pan.baidu.com/s/12okB6FhpmVXOMwsgXrw20g \
 key: qfg3
-### 2. modify config file _resume_ and _data_ in cfgs
+### 2. modify _resume_ and _data_ in config files
 * example: _cfgs/fine_resnet18_pretrained.yaml_
 ```yaml
 ...
