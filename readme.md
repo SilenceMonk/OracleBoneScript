@@ -74,6 +74,8 @@ tqdm
 |          │      ...
 |          ...
 ```
+## Before Usage
+### put [_OBS-extend_](#obs-extend) files in [_OracalBoneScript-main_](#oracalbonescript-main)
 
 ## Result
 * arch
@@ -96,8 +98,7 @@ tqdm
 | fine| x |96.6145/0.6037|
 | fine| |__97.4524/0.4260__|
 
-## Before Usage
-### put [_OBS-extend_](#obs-extend) files in [_OracalBoneScript-main_](#oracalbonescript-main)
+
 
 ## Training
 
