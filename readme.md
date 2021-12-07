@@ -97,7 +97,7 @@ tqdm
 | fine| |__97.4524/0.4260__|
 
 ## Before Usage
-### put [_OBS-extend_](#_OBS-extend_) files in [_OracalBoneScript-main_](#_OracalBoneScript-main_)
+### put [_OBS-extend_](#OBS-extend) files in [_OracalBoneScript-main_](#OracalBoneScript-main)
 
 ## Training
 
