@@ -76,7 +76,6 @@ tqdm
   * lr_scheduler: cosine annealing 
   * data augmentation: 
     * affine
-    * normalization
     * mixup* (in fine-grained stage*, https://arxiv.org/pdf/1710.09412.pdf)
   * exponential moving average
 * __rough__ classes: 10, __fine__-grained classes: 40
