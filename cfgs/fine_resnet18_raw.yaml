@@ -6,7 +6,7 @@ arch : resnet18
 pretrained : False
 ema : Ture
 
-resume : # ckpt/fine_resnet18_raw.pth
+resume :
 torch_hub_dir : pretrained_ecoder_weights
 local_rank : 0
 world_size : 1
