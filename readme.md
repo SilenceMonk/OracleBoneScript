@@ -202,10 +202,16 @@ resume : ckpt/fine_resnet18_pretrained.pth # resume training from giving dir, un
 
 ### 2. modify _xxx.py_ to _xxx_test.py_ in bash script
 * example: [_scripts/local.sh_](scripts/local.sh)
-```shell
-...
-python fine_test.py
-```
+  * fine stage
+  ```shell
+  ...
+  python fine_test.py
+  ```
+  * rough stage
+  ```shell
+  ...
+  python rough_test.py
+  ```
 ### 3. run script
 ```shell
 sh scripts/local.sh
