@@ -135,12 +135,22 @@ nepochs : 50 # total training epochs
 
 ### 2. modify bash script
 * example: [_scripts/local.sh_](scripts/local.sh)
-```shell
-export cfg_dir=cfgs/fine_resnet18_pretrained.yaml # config file dir
-export ngpu=1 bs=64 ddp=~ # set number of gpus, batchsize per gpu, distributed mode (normal, slurm or ~ (no ddp))
-export seed=42 # reset random seed for reproduction
-python fine.py
-```
+  * fine stage
+  ```shell
+  # fine stage
+  export cfg_dir=cfgs/fine_resnet18_pretrained.yaml # config file dir
+  export ngpu=1 bs=64 ddp=~ # set number of gpus, batchsize per gpu, distributed mode (normal, slurm or ~ (no ddp))
+  export seed=42 # reset random seed for reproduction
+  python fine.py
+  ```
+  * rough stage
+  ```shell
+  # rough stage
+  export cfg_dir=cfgs/rough_resnet18_pretrained.yaml
+  export ngpu=1 bs=64 ddp=~
+  export seed=42
+  python rough.py
+  ```
 ### 3. run script
 ```shell
 sh scripts/local.sh
@@ -155,7 +165,7 @@ modify _base.py_ or create a new one for new algorithms
 ## Testing (benchmark)
 
 ### 1. put test data under _data_
-* example: _data/obs/test
+* example: _data/obs/test_
 ```text
 ├─data
 │  └─obs
@@ -184,7 +194,7 @@ modify _base.py_ or create a new one for new algorithms
 * example: [_cfgs/fine_resnet18_pretrained.yaml_](cfgs/fine_resnet18_pretrained.yaml)
 ```yaml
 ...
-data : obs/test # testset dir
+data : data/obs/test # testset dir
 ...
 resume : ckpt/fine_resnet18_pretrained.pth # resume training from giving dir, uncomment to test
 ...
