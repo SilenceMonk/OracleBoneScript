@@ -10,6 +10,7 @@ tqdm
 ```
 
 ## File Tree
+### _OracalBoneScript-main_
 ```text
 │  base.py
 │  config.py
@@ -23,8 +24,33 @@ tqdm
 │      fine_resnet18_raw.yaml
 │      rough_resnet18_pretrained.yaml
 │      rough_resnet18_raw.yaml
+|             
+├─logs
+│
+│                   
+├─scripts
+│      local.sh
+│      normal.sh
+│      slurm.sh
 │      
+├─utils
+│  │  ddp.py
+│  │  ema.py
+│  │  util.py
+│  |  __init__.py
+```
+
+### _OBS-extend_
+* https://pan.baidu.com/s/1naYjcgtUyxuVkMhGaAy7jg
+* key: pyyg
+
+```text
+├─pretrained_ecoder_weights
+│  └─checkpoints
+│          resnet18-5c106cde.pth      
 ├─ckpt
+│      fine_resnet18_pretrained.pth
+│      rough_resnet18_pretrained.pth
 ├─data
 │  └─obs
 │      └─train
@@ -47,24 +73,6 @@ tqdm
 |          │      person_xxxx.jpg
 |          │      ...
 |          ...
-│              
-├─logs
-│
-│          
-├─pretrained_ecoder_weights
-│  └─checkpoints
-│          resnet18-5c106cde.pth
-│          
-├─scripts
-│      local.sh
-│      normal.sh
-│      slurm.sh
-│      
-├─utils
-│  │  ddp.py
-│  │  ema.py
-│  │  util.py
-│  |  __init__.py
 ```
 
 ## Result
@@ -88,6 +96,8 @@ tqdm
 | fine| x |96.6145/0.6037|
 | fine| |__97.4524/0.4260__|
 
+## Before Usage
+### put [_OBS-extend_](#_OBS-extend_) files in [_OracalBoneScript-main_](#_OracalBoneScript-main_)
 
 ## Training
 
@@ -142,10 +152,7 @@ modify _base.py_ or create a new one for new algorithms
 
 ## Testing (benchmark)
 
-### 1. download pretrained weights, put them under ckpt/
-https://pan.baidu.com/s/1MCF2jsJ6aEtCz91jud7Keg \
-key: osov
-### 2. modify _resume_ and _data_ in config files
+### 1. modify _resume_ and _data_ in config files
 * example: [_cfgs/fine_resnet18_pretrained.yaml_](cfgs/fine_resnet18_pretrained.yaml)
 ```yaml
 ...
