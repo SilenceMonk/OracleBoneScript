@@ -74,7 +74,7 @@ tqdm
 |          │      ...
 |          ...
 ```
-### Before Usage
+## Installation
 put [OBS-extend](#obs-extend) files in [OracalBoneScript-main](#oracalbonescript-main)
 
 ## Result
