@@ -74,8 +74,8 @@ tqdm
 |          │      ...
 |          ...
 ```
-## Before Usage
-### put [_OBS-extend_](#obs-extend) files in [_OracalBoneScript-main_](#oracalbonescript-main)
+### Before Usage
+put [OBS-extend](#obs-extend) files in [OracalBoneScript-main](#oracalbonescript-main)
 
 ## Result
 * arch
