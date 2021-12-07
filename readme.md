@@ -154,7 +154,33 @@ modify _base.py_ or create a new one for new algorithms
 
 ## Testing (benchmark)
 
-### 1. modify _resume_ and _data_ in config files
+### 1. put test data under _data_
+* example: _data/obs/test
+```text
+├─data
+│  └─obs
+│      └─train
+|          ├─0102
+|          │      person_0000.jpg
+|          │      person_0001.jpg
+|          │      ...
+|          │      
+|          ├─0103
+|          │      person_0000.jpg
+|          │      person_0001.jpg
+|          │      ...
+|          ...
+│      └─test
+|          ├─0102
+|          │      person_xxxx.jpg
+|          │      ...
+|          │      
+|          ├─0103
+|          │      person_xxxx.jpg
+|          │      ...
+|          ...
+```
+### 2. modify _data_ and _resume_ in config files
 * example: [_cfgs/fine_resnet18_pretrained.yaml_](cfgs/fine_resnet18_pretrained.yaml)
 ```yaml
 ...
