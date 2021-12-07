@@ -46,6 +46,8 @@ if C.resume:
 if C.ema:
     model = ema_model
 
+model.eval()
+
 # dataset
 test_TF = transforms.Compose([
     transforms.Resize(size=[C.image_size, C.image_size], interpolation=InterpolationMode.NEAREST),

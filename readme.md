@@ -144,8 +144,8 @@ modify _base.py_ or create a new one for new algorithms
 ## Testing (benchmark)
 
 ### 1. download pretrained weights, put them under ckpt/
-https://pan.baidu.com/s/12okB6FhpmVXOMwsgXrw20g \
-key: qfg3
+https://pan.baidu.com/s/1MCF2jsJ6aEtCz91jud7Keg \
+key: osov
 ### 2. modify _resume_ and _data_ in config files
 * example: [_cfgs/fine_resnet18_pretrained.yaml_](cfgs/fine_resnet18_pretrained.yaml)
 ```yaml
