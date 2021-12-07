@@ -75,7 +75,8 @@ tqdm
 |          ...
 ```
 ## Installation
-put [OBS-extend](#obs-extend) files under [OracalBoneScript-main](#oracalbonescript-main)
+* download [OBS-extend](#obs-extend) files 
+* put them under [OracalBoneScript-main](#oracalbonescript-main)
 
 ## Result
 * arch
