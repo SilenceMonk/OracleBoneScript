@@ -1,4 +1,4 @@
-# Oracle Bone Script Recognition 
+# Oracle Bone Script Recognition Benchmark
 
 ## Requirements
 ```text
@@ -67,7 +67,7 @@ tqdm
 │  |  __init__.py
 ```
 
-## Benchmark
+## Result
 * arch
   * ResNet18
 * method: 
